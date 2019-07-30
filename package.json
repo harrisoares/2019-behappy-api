@@ -9,7 +9,7 @@
   "scripts": {
     "dev-start": "nodemon bootstrap",
     "start": "node bootstrap",
-    "postinstall": ""
+    "postinstall": " knex migrate: o mais recente && knex seed: run "
   },
   "keywords": [
     "api",
