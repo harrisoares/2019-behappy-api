@@ -11,6 +11,7 @@ const init = async () => {
     options: {
       routes: "src/routes/**/*.js"
     }
+
   });
 
   await server.start();
