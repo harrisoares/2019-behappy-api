@@ -1,5 +1,3 @@
-import Joi from "@hapi/joi";
-
 import knex from "../config/knex";
 
 const tasks_route = [
@@ -11,7 +9,7 @@ const tasks_route = [
         .from("tasks")
         .select("oid", "title", "description")
         .then(results => reply.response(results))
-        .catch(err => reply.response(err))
+        .catch(err => console.log(err))
   },
   {
     method: "POST",
@@ -60,6 +58,22 @@ const tasks_route = [
         }
       }
     }
+  },
+  {
+    method: "DELETE",
+    path: "/tasks/{task_id}",
+    handler: (request, reply) =>
+      knex(table_name)
+        .where("oid", request.params.task_id)
+        .del()
+        .then(results =>
+          reply
+            .response(delete_response(results, request.params.task_id))
+            .code(delete_response_code(results))
+        )
+        .catch(error => {
+          reply.response(delete_response(0, 0)).code(400);
+        })
   }
 ];
 
