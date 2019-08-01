@@ -1,3 +1,5 @@
+import Joi from "@hapi/joi";
+
 import knex from "../config/knex";
 
 const tasks_route = [
