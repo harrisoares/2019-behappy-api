@@ -1,4 +1,4 @@
-const table_name = "what";
+const table_name = "tasks";
 
 exports.up = function(knex, Promise) {
     return knex.schema.alterTable(table_name, (table) => {
