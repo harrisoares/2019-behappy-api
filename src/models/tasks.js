@@ -47,7 +47,7 @@ class Task {
       let task = new Task();
       task.oid = data.oid ? data.oid : 0;
       task.title = data.title ? data.title : "";
-      task.done = data.done ? data.done : false;
+      task.done = data.done ? true : false;
       task.delete = data.delete ? data.delete : false;
       return task;
     });
